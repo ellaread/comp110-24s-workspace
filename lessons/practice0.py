@@ -1,3 +1,1 @@
-not not True
-
-emoji_squares_str = ""
+print ("Hello\nworld\n!!!")

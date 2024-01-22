@@ -19,20 +19,30 @@ if guess_number < 1:
 if guess_number > 4:
     print(f"Error! {guess_number} too high!")
 
+guess_str: str = ""
+
 if guess_number == location_number:
     print("Correct! You hit the ship.")
-    yes_str: str = RED_BOX
+    guess_str: str = RED_BOX
+
 if guess_number != location_number:
     print("Incorrect! You missed the ship.")
-    no_str: str = WHITE_BOX
+    guess_str: str = WHITE_BOX
 
 emoji_squares_str = "" # initializing an empty string
-if guess_number and location_number == 1:
-    emoji_squares_str = yes_str + BLUE_BOX * 3
-    print(emoji_squares_str)
-else:
-    emoji_squares_str = WHITE_BOX + BLUE_BOX * 3
-    print(emoji_squares_str)
+if guess_number == 1:
+    emoji_squares_str = guess_str + BLUE_BOX * 3
+    
+if guess_number == 2:
+    emoji_squares_str = BLUE_BOX + guess_str + BLUE_BOX*2
+
+if guess_number == 3:
+    emoji_squares_str = BLUE_BOX * 2 + guess_str + BLUE_BOX
+
+if guess_number == 4:
+    emoji_squares_str = BLUE_BOX*3 + guess_str
+    
+print(emoji_squares_str)
 
 
 # if the guess is the first box, concatenate guess box, otherwise blue
