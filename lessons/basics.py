@@ -1,4 +1,6 @@
 """practice with the basics of coding"""
-print(2)
-print("Howdy!"[4])
-print(type(25))
+x = y
+if y != x:
+    print("y is NOT edual to x")
+else:
+    print("y is equal to x")
