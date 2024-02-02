@@ -9,19 +9,54 @@ WHITE_BOX: str = "\U00002B1C"
 
 correct: bool = False
 while not correct:
+    # Row input
     guess_row: str = input("Guess a row: ")
-    row_int: int = int(guess_row)
-    if row_int > GRID_SIZE or row_int < 1:
-        row_int: int = int(input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: "))
-        # i think i need another conditional in here so this prompt keeps repeating until the value is in range
-    if row_int != SECRET_ROW:
-        print("Miss!")
+    while True: 
+        row_int: int = int(guess_row)
+        if 1 <= row_int <= GRID_SIZE:
+            break
+        else: 
+            guess_row = input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: ")
+    # Column input
     guess_column: str = input("Guess a column: ")
-    column_int: int = int(guess_column)
-    if column_int > GRID_SIZE or column_int < 1: 
-        column_int: int = int(input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: "))
-    if column_int != SECRET_COLUMN:
-        print("Miss!")
+    while True:
+        column_int: int = int(guess_column)
+        if 1 <= column_int <= GRID_SIZE:
+            break
+        else:
+            guess_column = input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: ")
+    # Check if both row and column are correct
+    if row_int == SECRET_ROW and column_int == SECRET_COLUMN:
+        result_box = RED_BOX   # Red Box for correct guesses
+    else:
+        result_box = WHITE_BOX   # white box if guess is incorrect
     correct = True
-else:
+# start counter
+row_counter = 1
+while row_counter <= GRID_SIZE:
+    # initiating empty string 
+    row_str = ""
+    column_counter = 1
+    if row_counter == row_int:
+        while column_counter <= GRID_SIZE: 
+            if column_counter == column_int:
+                row_str += result_box
+            else: 
+                row_str += BLUE_BOX
+            column_counter += 1
+        row_counter += 1
+    else:
+        while column_counter <= GRID_SIZE: 
+            row_str += BLUE_BOX
+            column_counter += 1
+        row_counter += 1
+    print(row_str)
+
+if row_int == SECRET_ROW and column_int == SECRET_COLUMN:
     print("Hit!")
+elif row_int == SECRET_ROW and column_int != SECRET_COLUMN:
+    print("Close! Correct row, wrong column.")
+elif row_int != SECRET_COLUMN and column_int == SECRET_COLUMN:
+    print("Close! Correct column, wrong row.")
+else:
+    print("Miss!")
