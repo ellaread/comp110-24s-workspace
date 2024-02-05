@@ -11,18 +11,20 @@ correct: bool = False
 while not correct:
     # Row input
     guess_row: str = input("Guess a row: ")
-    while True: 
+    guess = True
+    while guess: 
         row_int: int = int(guess_row)
         if 1 <= row_int <= GRID_SIZE:
-            break
+            guess = False
         else: 
             guess_row = input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: ")
     # Column input
     guess_column: str = input("Guess a column: ")
-    while True:
+    guess = True
+    while guess:
         column_int: int = int(guess_column)
         if 1 <= column_int <= GRID_SIZE:
-            break
+            guess = False
         else:
             guess_column = input(f"The grid is only {GRID_SIZE} by {GRID_SIZE}. Try again: ")
     # Check if both row and column are correct
