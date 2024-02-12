@@ -1,12 +1,19 @@
-x: int = 3
-y: int = 9
+x: int = 10
+result:str = ""
+ 
+while x > 0:
+    if x % 3 == 0:
+        result = result + str(x)
+    else:
+        result = str(x) + result
+    x = x // 2
+print(result)
 
-if x % 2 == 0:
-    print("A")
-    if x == 2:
-        print("B")
+age: int = int(input("What is your age?"))
+if age <= 12:
+    price: int = 5
+elif age > 60:
+    price: int = 5
 else:
-    if x < y: 
-        print("C")
-if x ** 2 == y:
-    print("D")
+    price: int = 10
+print(price)

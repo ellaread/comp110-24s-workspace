@@ -6,6 +6,7 @@ def my_max(num1: int, num2: int) -> int:
         return num1
     else: #number1 < number 2
         return num2
+    return 0 
     
 max: int = my_max(1,10)
 other_max: int = my_max(11,3)
