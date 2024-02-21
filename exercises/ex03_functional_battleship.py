@@ -73,6 +73,7 @@ def main(grid_size: int, secretr: int, secretc: int) -> None:
             turns -= 1
     if not win:   # if location is not correctly guessed in 5 moves print this 
         print("X/5 - Better luck next time!")
+        print(f"Row was: {secretr}, Column was: {secretc}")
 
 
 if __name__ == "__main__":
