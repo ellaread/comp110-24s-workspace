@@ -19,3 +19,13 @@ x: int = 3
 print(around(x))
 
 
+def shrink(input: list[int]) -> list[int]:
+    """Get values of list that are even and < 19."""
+    i: int = 0
+    shrunk: list[int] = []
+    while i < len(input):
+        if input[i] % 2 == 0 and input[i] < 19:
+            shrunk.append(input[i])
+        else:
+            i += 1
+    return shrunk
